@@ -1,0 +1,124 @@
+<html xmlns="http://www.w3.org/1999/xhtml" class="login-pf"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Log in to RadistWeb</title>
+    <link rel="icon" href="/auth/resources/813kc/login/radist_v2_4/img/favicon.ico">
+            <link href="/auth/resources/813kc/common/keycloak/web_modules/@patternfly/react-core/dist/styles/base.css" rel="stylesheet">
+            <link href="/auth/resources/813kc/common/keycloak/web_modules/@patternfly/react-core/dist/styles/app.css" rel="stylesheet">
+            <link href="/auth/resources/813kc/common/keycloak/node_modules/patternfly/dist/css/patternfly.min.css" rel="stylesheet">
+            <link href="/auth/resources/813kc/common/keycloak/node_modules/patternfly/dist/css/patternfly-additions.min.css" rel="stylesheet">
+            <link href="/auth/resources/813kc/common/keycloak/lib/pficon/pficon.css" rel="stylesheet">
+            <link href="/auth/resources/813kc/login/radist_v2_4/css/login.css" rel="stylesheet">
+            <link href="/auth/resources/813kc/login/radist_v2_4/css/tile.css" rel="stylesheet">
+</head>
+
+<body class="">
+<div class="login-pf-page">
+    <div id="kc-header" class="login-pf-page-header">
+        <div id="kc-header-wrapper" class="">RadistWeb</div>
+    </div>
+    <div class="card-pf">
+        <header class="login-pf-header">
+                <div class="pf-c-dropdown" id="kc-locale">
+                    <div id="kc-locale-wrapper" class="">
+                        <div id="kc-locale-dropdown" class="">
+                            <a href="#" id="kc-current-locale-link">Русский</a>
+                            <ul class="pf-c-dropdown__menu pf-m-align-right">
+                                    <li class="">
+                                        <a class="pf-c-dropdown__menu-item" href="/auth/realms/radist/login-actions/authenticate?client_id=web-ui&amp;tab_id=HoAG41D5ocM&amp;execution=5fc3212d-1c16-40e7-8c15-e5d6ab9945ea&amp;kc_locale=ru">Русский</a>
+                                    </li>
+                                    <li class="">
+                                        <a class="pf-c-dropdown__menu-item" href="/auth/realms/radist/login-actions/authenticate?client_id=web-ui&amp;tab_id=HoAG41D5ocM&amp;execution=5fc3212d-1c16-40e7-8c15-e5d6ab9945ea&amp;kc_locale=en">English</a>
+                                    </li>
+                                    <li class="">
+                                        <a class="pf-c-dropdown__menu-item" href="/auth/realms/radist/login-actions/authenticate?client_id=web-ui&amp;tab_id=HoAG41D5ocM&amp;execution=5fc3212d-1c16-40e7-8c15-e5d6ab9945ea&amp;kc_locale=es">Español</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <h1 id="kc-page-title">        Вход
+
+</h1>
+      </header>
+      <div id="kc-content">
+        <div id="kc-content-wrapper">
+
+
+    <div id="kc-form">
+      <div id="kc-form-wrapper">
+            <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="https://auth.radist.online/auth/realms/radist/login-actions/authenticate?session_code=6JZyfpnd6yxC6pzjvJZs8-e-hwYLKe96hjHHr7sHyvs&amp;execution=5fc3212d-1c16-40e7-8c15-e5d6ab9945ea&amp;client_id=web-ui&amp;tab_id=HoAG41D5ocM" method="post">
+                    <div class="form-group">
+                        <label for="username" class="pf-c-form__label pf-c-form__label-text">E-mail</label>
+
+                        <input tabindex="1" id="username" class="pf-c-form-control" name="username" value="" type="text" autofocus="" autocomplete="off" aria-invalid="">
+
+
+                    </div>
+
+                <div class="form-group">
+                    <label for="password" class="pf-c-form__label pf-c-form__label-text">Пароль</label>
+
+                    <input tabindex="2" id="password" class="pf-c-form-control" name="password" type="password" autocomplete="off" aria-invalid="">
+
+
+                </div>
+
+                <div class="form-group login-pf-settings">
+                    <div id="kc-form-options">
+                            <div class="checkbox">
+                                <label>
+                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> Запомнить меня
+                                </label>
+                            </div>
+                        </div>
+                        <div class="">
+                                <span><a tabindex="5" href="/auth/realms/radist/login-actions/reset-credentials?client_id=web-ui&amp;tab_id=HoAG41D5ocM">Забыли пароль?</a></span>
+                        </div>
+
+                  </div>
+
+                  <div id="kc-form-buttons" class="form-group">
+                      <input type="hidden" id="id-hidden-input" name="credentialId">
+                      <input tabindex="4" class="pf-c-button pf-m-primary pf-m-block btn-lg" name="login" id="kc-login" type="submit" value="Вход">
+                  </div>
+            </form>
+        </div>
+
+            <div id="kc-social-providers" class="kc-social-section kc-social-gray">
+                <hr>
+                <h4>Или войдите через</h4>
+
+                <ul class="pf-c-login__main-footer-links kc-social-links ">
+                        <a id="social-facebook" class="pf-c-button pf-m-control pf-m-block kc-social-item kc-social-gray " type="button" href="/auth/realms/radist/broker/facebook/login?client_id=web-ui&amp;tab_id=HoAG41D5ocM&amp;session_code=6JZyfpnd6yxC6pzjvJZs8-e-hwYLKe96hjHHr7sHyvs">
+                                <i class="kc-social-provider-logo kc-social-gray fa fa-facebook" aria-hidden="true"></i>
+                                <span class="kc-social-provider-name kc-social-icon-text">Facebook</span>
+                        </a>
+                </ul>
+            </div>
+
+    </div>
+
+
+
+              <div id="kc-info" class="login-pf-signup">
+                  <div id="kc-info-wrapper" class="">
+            <div id="kc-registration-container">
+                <div id="kc-registration">
+                    <span>Новый пользователь? <a tabindex="6" href="/auth/realms/radist/login-actions/registration?client_id=web-ui&amp;tab_id=HoAG41D5ocM">Регистрация</a></span>
+                </div>
+            </div>
+
+                  </div>
+              </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</body></html>
