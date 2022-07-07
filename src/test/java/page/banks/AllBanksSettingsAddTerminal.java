@@ -1,5 +1,6 @@
 package page.banks;
 
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,17 +14,18 @@ import static page.LoginPage.getUsername;
 
 public class AllBanksSettingsAddTerminal {
 
-        private String username = getUsername();
-        private String password = getPassword();
+    final String username = getUsername();
+    final String password = getPassword();
+    final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
-        @BeforeEach
-        public void setUp() {
-            open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+    @BeforeEach
+    public void setUp() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
 
-        }
+    }
 
-        @Test
-        public void shouldAddTerminalBePaid() {
+    @Test
+    public void shouldAddTerminalBePaid() {
 
         $("[name='username']").setValue(username);
         $("[name='password']").setValue(password);
@@ -36,7 +38,7 @@ public class AllBanksSettingsAddTerminal {
         $x("//*[text()='Добавить']").click();
         $x("//*[text()='Сохранить изменения']").click();
 
-        $(withText("Изменения были успешно сохранены")).shouldBe(appear, Duration.ofSeconds(2));
+        save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
 
@@ -53,7 +55,7 @@ public class AllBanksSettingsAddTerminal {
         $x("//*[text()='Добавить']").click();
         $x("//*[text()='Сохранить изменения']").click();
 
-        $(withText("Изменения были успешно сохранены"));
+        save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
 
@@ -68,7 +70,7 @@ public class AllBanksSettingsAddTerminal {
         $x("//*[text()='Добавить']").click();
         $x("//*[text()='Сохранить изменения']").click();
 
-        $(withText("Изменения были успешно сохранены"));
+        save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
 
@@ -83,7 +85,7 @@ public class AllBanksSettingsAddTerminal {
         $x("//*[text()='Добавить']").click();
         $x("//*[text()='Сохранить изменения']").click();
 
-        $(withText("Изменения были успешно сохранены"));
+        save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
 
@@ -98,7 +100,7 @@ public class AllBanksSettingsAddTerminal {
         $x("//*[text()='Добавить']").click();
         $x("//*[text()='Сохранить изменения']").click();
 
-        $(withText("Изменения были успешно сохранены"));
+        save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
 }
