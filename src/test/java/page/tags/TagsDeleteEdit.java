@@ -45,7 +45,7 @@ public class TagsDeleteEdit {
         $("[name='login']").click();
         $("[class='tagsContainer_table_tags_button_edit']").click();
         $("[id='name']").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[id='name']").setValue(TagsFaker.servicePhone());
+        $("[id='name']").setValue(TagsFaker.phone());
         $("[id='description']").setValue(TagsFaker.name());
         $("[class='GlobalButton  orange small']").click();
 

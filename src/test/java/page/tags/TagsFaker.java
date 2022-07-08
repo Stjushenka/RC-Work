@@ -16,7 +16,7 @@ public class TagsFaker {
 
 
     public static String name (){
-        return faker.funnyName().name();
+        return faker.name().name();
     }
 
     public static String pockemonName (){
@@ -27,8 +27,13 @@ public class TagsFaker {
         return faker.address().cityName();
     }
 
-    public static String servicePhone(){
+    public static String phone(){
         return faker.phoneNumber().phoneNumber();
+    }
+
+    public static String randomEmail() {
+
+        return faker.internet().emailAddress();
     }
 
 }
