@@ -4,6 +4,7 @@ package page.banks;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 import java.time.Duration;
 
@@ -293,13 +294,21 @@ public class BanksSettingsPK {
     }
     @Test
     public void shouldSettingsPKTaxDisabled() {
+        $("[name='username']").setValue(username);
+        $("[name='password']").setValue(password);
+        $("[name='login']").click();
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='20%']").click();
         $x("//*[text()='Сохранить изменения']").click();
-        save.shouldBe(appear, Duration.ofSeconds(2));
+        save.shouldBe(appear, Duration.ofSeconds(15));
+        $("[class='BankCustomIntegration__content__extraFields__item']").click();
+        $x("//*[text()='10%']").click();
+        $("[class='BankCustomIntegration__content__extraFields__item']").click();
+        $x("//*[text()='20%']").click();
+        $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
     }
-    BankCustomIntegration__footer__saveChanges__button disabled
+
 }
 
 
