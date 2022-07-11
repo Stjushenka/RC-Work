@@ -291,6 +291,15 @@ public class BanksSettingsPK {
         save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
+    @Test
+    public void shouldSettingsPKTaxDisabled() {
+        name.click();
+        $("[class='BankCustomIntegration__content__extraFields__item']").click();
+        $x("//*[text()='20%']").click();
+        $x("//*[text()='Сохранить изменения']").click();
+        save.shouldBe(appear, Duration.ofSeconds(2));
+    }
+    BankCustomIntegration__footer__saveChanges__button disabled
 }
 
 
