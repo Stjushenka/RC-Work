@@ -103,4 +103,13 @@ public class AllBanksSettingsAddTerminal {
         save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
+
+    @Test
+    public void shouldTerminalPK() {
+        $x("//*[text()='paykeeper+amo radistonlinewidgets.amocrm.ru']").click();
+        $("[class='BankSettingsTerminal__item__useByDefault']").click();
+        $x("//*[text()='Сохранить изменения']").click();
+        save.shouldBe(appear, Duration.ofSeconds(2));
+
+    }
 }

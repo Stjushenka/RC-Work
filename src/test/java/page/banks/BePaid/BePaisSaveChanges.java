@@ -1,4 +1,4 @@
-package page.banks;
+package page.banks.BePaid;
 
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
 
-public class BanksSettingsBePaid {
+public class BePaisSaveChanges {
 
     final String username = getUsername();
     final String password = getPassword();

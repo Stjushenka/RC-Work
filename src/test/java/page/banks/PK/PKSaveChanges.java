@@ -1,4 +1,4 @@
-package page.banks;
+package page.banks.PK;
 
 
 import com.codeborne.selenide.SelenideElement;
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
 
-public class BanksSettingsPK {
+public class PKSaveChanges {
     final String username = getUsername();
     final String password = getPassword();
     final SelenideElement name = $x("//*[text()='paykeeper+amo radistonlinewidgets.amocrm.ru']");
@@ -199,15 +199,6 @@ public class BanksSettingsPK {
     }
 
     @Test
-    public void shouldSettingsPKPay2() {
-        name.click();
-        $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
-        $x("//*[text()='Аванс']").click();
-        $x("//*[text()='Сохранить изменения']").click();
-        save.shouldBe(appear, Duration.ofSeconds(2));
-    }
-
-    @Test
     public void shouldSettingsPKPay() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
@@ -217,19 +208,28 @@ public class BanksSettingsPK {
     }
 
     @Test
-    public void shouldSettingsPKPay3() {
+    public void shouldSettingsPKPay1() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
-        $x("//*[text()='Полный расчет']").click();
+        $x("//*[text()='Предоплата']").click();
         $x("//*[text()='Сохранить изменения']").click();
         save.shouldBe(appear, Duration.ofSeconds(2));
     }
 
     @Test
-    public void shouldSettingsPKPay1() {
+    public void shouldSettingsPKPay2() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
-        $x("//*[text()='Предоплата']").click();
+        $x("//*[text()='Аванс']").click();
+        $x("//*[text()='Сохранить изменения']").click();
+        save.shouldBe(appear, Duration.ofSeconds(2));
+    }
+
+    @Test
+    public void shouldSettingsPKPay3() {
+        name.click();
+        $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
+        $x("//*[text()='Полный расчет']").click();
         $x("//*[text()='Сохранить изменения']").click();
         save.shouldBe(appear, Duration.ofSeconds(2));
     }
@@ -284,14 +284,7 @@ public class BanksSettingsPK {
 
     }
 
-    @Test
-    public void shouldTerminalPK() {
-        name.click();
-        $("[class='BankSettingsTerminal__item__useByDefault']").click();
-        $x("//*[text()='Сохранить изменения']").click();
-        save.shouldBe(appear, Duration.ofSeconds(2));
 
-    }
     @Test
     public void shouldSettingsPKTaxDisabled() {
         $("[name='username']").setValue(username);
