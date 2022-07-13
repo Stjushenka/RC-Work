@@ -1,4 +1,4 @@
-package page.banks;
+package page.banks.Modulebank;
 
 
 import com.codeborne.selenide.SelenideElement;
@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
 
-public class BanksSettingsModulebank {
+public class ModulebankSaveChanges {
     final String username = getUsername();
     final String password = getPassword();
     final SelenideElement name = $x("//*[text()='modulbank+amo radistonlinewidgets.amocrm.ru']");

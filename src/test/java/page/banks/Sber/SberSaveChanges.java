@@ -1,4 +1,4 @@
-package page.banks;
+package page.banks.Sber;
 
 
 import com.codeborne.selenide.SelenideElement;
@@ -13,10 +13,10 @@ import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
 
-public class BanksSettingsTinkoff {
+public class SberSaveChanges {
     final String username = getUsername();
     final String password = getPassword();
-    final SelenideElement name = $x("//*[text()='tinkoff+amo radistonlinewidgets.amocrm.ru']");
+    final SelenideElement name = $x("//*[text()='sberbank+amo radistonlinewidgets.amocrm.ru']");
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
     @BeforeEach
@@ -28,17 +28,17 @@ public class BanksSettingsTinkoff {
 
 
     @Test
-    public void shouldSettingsTinkoffType() {
+    public void shouldSettingsSberType() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
-        $x("//*[text()='Подакцизный товар']").click();
+        $("[data-value='excise']").click();
         $x("//*[text()='Сохранить изменения']").click();
         save.shouldBe(appear, Duration.ofSeconds(2));
 
     }
 
     @Test
-    public void shouldSettingsTinkoffType1() {
+    public void shouldSettingsSberType1() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Иной']").click();
@@ -47,7 +47,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType2() {
+    public void shouldSettingsSberType2() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Товар']").click();
@@ -56,7 +56,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType4() {
+    public void shouldSettingsSberType4() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Работа']").click();
@@ -65,7 +65,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType5() {
+    public void shouldSettingsSberType5() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Услуга']").click();
@@ -74,7 +74,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType6() {
+    public void shouldSettingsSberType6() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Ставка азартной игры']").click();
@@ -83,7 +83,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType7() {
+    public void shouldSettingsSberType7() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Выигрыш азартной игры']").click();
@@ -92,7 +92,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType8() {
+    public void shouldSettingsSberType8() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Лотерейный билет']").click();
@@ -101,7 +101,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType9() {
+    public void shouldSettingsSberType9() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Выигрыш лотереи']").click();
@@ -110,7 +110,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType10() {
+    public void shouldSettingsSberType10() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Предоставление РИД']").click();
@@ -119,7 +119,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType11() {
+    public void shouldSettingsSberType11() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Платеж']").click();
@@ -128,7 +128,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType12() {
+    public void shouldSettingsSberType12() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Агентское вознаграждение']").click();
@@ -137,7 +137,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffType13() {
+    public void shouldSettingsSberType13() {
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='Составной предмет расчета']").click();
@@ -146,7 +146,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffTax() {
+    public void shouldSettingsSberTax() {
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='Без НДС']").click();
@@ -156,7 +156,7 @@ public class BanksSettingsTinkoff {
 
 
     @Test
-    public void shouldSettingsTinkoffTax0() {
+    public void shouldSettingsSberTax0() {
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='0%']").click();
@@ -165,7 +165,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffTax10() {
+    public void shouldSettingsSberTax10() {
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='10%']").click();
@@ -174,7 +174,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffTax20() {
+    public void shouldSettingsSberTax20() {
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='20%']").click();
@@ -183,7 +183,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffTax110() {
+    public void shouldSettingsSberTax110() {
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='10/110']").click();
@@ -192,7 +192,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffTax120() {
+    public void shouldSettingsSberTax120() {
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='20/120']").click();
@@ -202,10 +202,7 @@ public class BanksSettingsTinkoff {
 
 
     @Test
-    public void shouldSettingsTinkoffPay() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
+    public void shouldSettingsSberPay() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $("[data-value='full_prepayment']").click();
@@ -215,7 +212,7 @@ public class BanksSettingsTinkoff {
 
 
     @Test
-    public void shouldSettingsTinkoffPay1() {
+    public void shouldSettingsSberPay1() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $x("//*[text()='Предоплата']").click();
@@ -224,7 +221,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffPay2() {
+    public void shouldSettingsSberPay2() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $x("//*[text()='Аванс']").click();
@@ -233,7 +230,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffPay3() {
+    public void shouldSettingsSberPay3() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $x("//*[text()='Полный расчет']").click();
@@ -242,7 +239,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffPay4() {
+    public void shouldSettingsSberPay4() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $x("//*[text()='Частичный расчет и кредит']").click();
@@ -251,7 +248,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldSettingsTinkoffPay5() {
+    public void shouldSettingsSberPay5() {
 
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
@@ -262,7 +259,7 @@ public class BanksSettingsTinkoff {
 
 
     @Test
-    public void shouldSettingsTinkoffPay6() {
+    public void shouldSettingsSberPay6() {
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $("[data-value='credit_payment']").click();
@@ -271,7 +268,11 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldUpDownTinkoff() {
+    public void shouldUpDownSber() {
+        $("[name='username']").setValue(username);
+        $("[name='password']").setValue(password);
+        $("[name='login']").click();
+
         name.click();
         $("[aria-label='controlled']").click();
         $x("//*[text()='Сохранить изменения']").click();
@@ -280,7 +281,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldFieldsTinkoff() {
+    public void shouldFieldsSber() {
         name.click();
         $("[type='checkbox']").click();
         $x("//*[text()='Сохранить изменения']").click();
@@ -289,7 +290,7 @@ public class BanksSettingsTinkoff {
     }
 
     @Test
-    public void shouldTerminalTinkoff() {
+    public void shouldTerminalSber() {
         name.click();
         $("[class='BankSettingsTerminal__item__useByDefault']").click();
         $x("//*[text()='Сохранить изменения']").click();
