@@ -2,10 +2,8 @@ package page.tags;
 
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.Number;
 
 import java.util.Locale;
-import java.util.Random;
 
 
 public class TagsFaker {
@@ -34,6 +32,11 @@ public class TagsFaker {
     public static String randomEmail() {
 
         return faker.internet().emailAddress();
+    }
+
+    public static long number() {
+
+        return faker.number().randomNumber();
     }
 
 }

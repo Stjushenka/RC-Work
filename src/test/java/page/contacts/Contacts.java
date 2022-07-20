@@ -26,19 +26,16 @@ public class Contacts {
 
     @Test
     public void AddContact() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
+        //$("[name='username']").setValue(username);
+        //$("[name='password']").setValue(password);
+        //$("[name='login']").click();
         $x("//*[text()='Добавить контакт']").click();
-                $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
+        $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
         $("[class='ContactDetailEdit__footer__saveButton ']").click();
     }
 
     @Test
     public void AddContact1() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $x("//*[text()='Добавить контакт']").click();
         $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
         $("[class=' react-tel-input '] input").setValue(TagsFaker.phone());
@@ -49,9 +46,6 @@ public class Contacts {
 
     @Test
     public void AddContact2() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $x("//*[text()='Добавить контакт']").click();
         $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
         $("[class=' react-tel-input '] input").setValue(TagsFaker.phone());
@@ -65,9 +59,6 @@ public class Contacts {
 
     @Test
     public void AddContact3() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $x("//*[text()='Добавить контакт']").click();
         $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
         $("[class=' react-tel-input '] input").setValue(TagsFaker.phone());
@@ -83,9 +74,6 @@ public class Contacts {
 
     @Test
     public void RefactorContact() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $("[class='contacts__footer__pagination__wrapper__setting__wrapper__setting__text__numberIcon']").click();
         $x("//*[text()='100']").click();
         $x("//*[text()='Сергей Белов']").click();
