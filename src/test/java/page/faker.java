@@ -1,4 +1,4 @@
-package page.tags;
+package page;
 
 
 import com.github.javafaker.Faker;
@@ -6,10 +6,10 @@ import com.github.javafaker.Faker;
 import java.util.Locale;
 
 
-public class TagsFaker {
+public class faker {
     private static Faker faker = new Faker(new Locale("ru"));
 
-    private TagsFaker(){};
+    private faker(){};
 
 
 

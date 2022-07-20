@@ -1,15 +1,10 @@
 package page.contacts;
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import page.tags.TagsFaker;
+import page.faker;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
@@ -30,16 +25,16 @@ public class Contacts {
         //$("[name='password']").setValue(password);
         //$("[name='login']").click();
         $x("//*[text()='Добавить контакт']").click();
-        $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
+        $("[class='ContactDetailEdit__name__item'] input").setValue(faker.name());
         $("[class='ContactDetailEdit__footer__saveButton ']").click();
     }
 
     @Test
     public void AddContact1() {
         $x("//*[text()='Добавить контакт']").click();
-        $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
-        $("[class=' react-tel-input '] input").setValue(TagsFaker.phone());
-        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(TagsFaker.randomEmail());
+        $("[class='ContactDetailEdit__name__item'] input").setValue(faker.name());
+        $("[class=' react-tel-input '] input").setValue(faker.phone());
+        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(faker.randomEmail());
         $("[class='ContactDetailEdit__footer__saveButton ']").click();
 
     }
@@ -47,9 +42,9 @@ public class Contacts {
     @Test
     public void AddContact2() {
         $x("//*[text()='Добавить контакт']").click();
-        $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
-        $("[class=' react-tel-input '] input").setValue(TagsFaker.phone());
-        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(TagsFaker.randomEmail());
+        $("[class='ContactDetailEdit__name__item'] input").setValue(faker.name());
+        $("[class=' react-tel-input '] input").setValue(faker.phone());
+        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(faker.randomEmail());
         $("[class='createContact__addTags']").click();
         $("[class='contactDetail__tags__addTags__wrapper__itemWrapper']").click();
         $("[class='createContact__addTags']").click();
@@ -60,15 +55,15 @@ public class Contacts {
     @Test
     public void AddContact3() {
         $x("//*[text()='Добавить контакт']").click();
-        $("[class='ContactDetailEdit__name__item'] input").setValue(TagsFaker.name());
-        $("[class=' react-tel-input '] input").setValue(TagsFaker.phone());
-        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(TagsFaker.randomEmail());
+        $("[class='ContactDetailEdit__name__item'] input").setValue(faker.name());
+        $("[class=' react-tel-input '] input").setValue(faker.phone());
+        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(faker.randomEmail());
         $("[class='createContact__addTags']").click();
         $("[class='contactDetail__tags__addTags__wrapper__itemWrapper']").click();
         $("[class='createContact__addTags']").click();
         $("[class='contactDetail__tags__addTags__wrapper__itemWrapper']").click();
         $x("//*[text()='Добавить заметку']").click();
-        $("[class='createContact__addNotes__wrapperTextarea__textarea']").setValue(TagsFaker.pockemonName());
+        $("[class='createContact__addNotes__wrapperTextarea__textarea']").setValue(faker.pockemonName());
         $("[class='ContactDetailEdit__footer__saveButton ']").click();
     }
 
@@ -81,7 +76,7 @@ public class Contacts {
         $("[class='ContactDetailEdit__name__item'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[class='ContactDetailEdit__name__item'] input").setValue("Сергей Белов");
         $x("//*[text()='Добавить адрес электронной почты']").click();
-        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(TagsFaker.randomEmail());
+        $("[class='ContactDetailEdit__item__list__item__email'] input").setValue(faker.randomEmail());
         $("[class='ContactDetailEdit__footer__saveButton ']").click();
         $("[class='ContactDetailEdit__footer__resetButton']").click();
         $x("//*[text()='Добавить теги']").click();
@@ -89,17 +84,17 @@ public class Contacts {
         $("[class='contactDetail__tags__addTags__wrapper__itemWrapper']").click();
         $x("//*[text()='Добавить']").click();
         $x("//*[text()='Добавить заметку']").click();
-        $("[name='createNote']").setValue(TagsFaker.pockemonName());
+        $("[name='createNote']").setValue(faker.pockemonName());
         $("[class='useModalContact__footer__add ']").click();
         $x("//*[text()='Добавить заметку']").click();
-        $("[name='createNote']").setValue(TagsFaker.pockemonName());
+        $("[name='createNote']").setValue(faker.pockemonName());
         $("[class='useModalContact__footer__add ']").click();
         $x("//*[text()='Добавить заметку']").click();
-        $("[name='createNote']").setValue(TagsFaker.pockemonName());
+        $("[name='createNote']").setValue(faker.pockemonName());
         $("[class='useModalContact__footer__add ']").click();
         $("[class='contactDetail__notes__item__EditRemove__item__edit']").click();
 
-        $("[name='editNote']").setValue(TagsFaker.pockemonName());
+        $("[name='editNote']").setValue(faker.pockemonName());
         $("[type='submit']").click();
 
     }

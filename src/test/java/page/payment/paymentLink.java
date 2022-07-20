@@ -1,15 +1,12 @@
 package page.payment;
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
-import page.tags.TagsFaker;
+import page.faker;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
@@ -48,7 +45,7 @@ public class paymentLink {
         $("[class='GlobalButton  white small']").click();
         $("[class='dropdownContainer__dropdown']").click();
         $x("//*[text()='test FAKE']").click();
-        $("[class='inputContainer__input'] input").setValue(TagsFaker.name());
+        $("[class='inputContainer__input'] input").setValue(faker.name());
         $("[class='inputContainer__input']").setValue("0.5");
         $("[class='inputContainer__input']").setValue("0.5");
         $("[class='GlobalButton  orange regular']").click();

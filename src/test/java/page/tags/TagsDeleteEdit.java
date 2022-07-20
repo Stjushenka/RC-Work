@@ -5,15 +5,10 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.$;
 
 
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import page.faker;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static page.LoginPage.getPassword;
 import static page.LoginPage.getUsername;
@@ -45,8 +40,8 @@ public class TagsDeleteEdit {
         $("[name='login']").click();
         $("[class='tagsContainer_table_tags_button_edit']").click();
         $("[id='name']").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $("[id='name']").setValue(TagsFaker.phone());
-        $("[id='description']").setValue(TagsFaker.name());
+        $("[id='name']").setValue(faker.phone());
+        $("[id='description']").setValue(faker.name());
         $("[class='GlobalButton  orange small']").click();
 
     }
