@@ -3,6 +3,8 @@ package page;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
@@ -256,6 +258,24 @@ public class templates {
         $("[name='waba_interactive.action.sections.sections.0.rows.0.description']").sendKeys(String.valueOf(faker.number()));
         $("[class='interactiveMessageSettings__footer_saveButton false']").click();
 
+    }
+
+    @Test
+    public void addTemplateInterPicButtons1() {
+        $("[name='username']").setValue(username);
+        $("[name='password']").setValue(password);
+        $("[name='login']").click();
+        $x("//*[text()='Интерактивные сообщения']").click();
+        $("[class='createTemplateButton']").click();
+        $("[id='image']").click();
+        $("[class='filePayloadContent__dropzone_text']").uploadFromClasspath(String.valueOf(new File("/kartinki-vulkany-27.jpg")));
+        $("[name='name']").sendKeys("Hello");
+        $("[name='waba_interactive.body']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.footer']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.action.buttons.0.reply.title']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.action.buttons.1.reply.title']").sendKeys(faker.pockemonName());
+        $("[class='interactiveMessageSettings__footer_saveButton false']").click();
+        $("[class = 'filePayloadContent__dropzone_errorMessage']").shouldBe(appear, Duration.ofSeconds(5));
     }
 
 }
