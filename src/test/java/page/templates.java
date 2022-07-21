@@ -192,9 +192,6 @@ public class templates {
 
     @Test
     public void addTemplateInterPicButtonsWithoutFooter() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $x("//*[text()='Интерактивные сообщения']").click();
         $("[class='createTemplateButton']").click();
         $("[id='image']").click();
@@ -261,21 +258,49 @@ public class templates {
     }
 
     @Test
-    public void addTemplateInterPicButtons1() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
+    public void addTemplateInterUpPicButtons() {
         $x("//*[text()='Интерактивные сообщения']").click();
         $("[class='createTemplateButton']").click();
         $("[id='image']").click();
-        $("[class='filePayloadContent__dropzone_text']").uploadFromClasspath(String.valueOf(new File("/kartinki-vulkany-27.jpg")));
+        $("[class='filePayloadContent__dropzone_input']").uploadFile(new File("C:\\Users\\Люцик\\Downloads\\kartinki-vulkany-27.jpg"));
         $("[name='name']").sendKeys("Hello");
         $("[name='waba_interactive.body']").sendKeys(faker.pockemonName());
         $("[name='waba_interactive.footer']").sendKeys(faker.pockemonName());
         $("[name='waba_interactive.action.buttons.0.reply.title']").sendKeys(faker.pockemonName());
         $("[name='waba_interactive.action.buttons.1.reply.title']").sendKeys(faker.pockemonName());
+        //$("[class='filePayloadContent__dropzone_text']").uploadFromClasspath(String.valueOf(new File("C:\\Users\\Lucik\\kartinki-vulkany-27.jpg")));
         $("[class='interactiveMessageSettings__footer_saveButton false']").click();
-        $("[class = 'filePayloadContent__dropzone_errorMessage']").shouldBe(appear, Duration.ofSeconds(5));
+    }
+
+    @Test
+    public void addTemplateInterUpVideoButtons() {
+        $x("//*[text()='Интерактивные сообщения']").click();
+        $("[class='createTemplateButton']").click();
+        $("[id='video']").click();
+        $("[name='name']").sendKeys(faker.pockemonName());
+        $("[class='filePayloadContent__dropzone_input']").uploadFile(new File("C:\\Users\\Люцик\\Downloads\\Test Image - 2141.mp4"));
+        $("[name='waba_interactive.body']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.action.buttons.0.reply.title']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.action.buttons.1.reply.title']").sendKeys(faker.pockemonName());
+        $("[class='interactiveMessageSettings__footer_saveButton false']").click();
+    }
+
+    @Test
+    public void addTemplateInterUpDocumentButtons() {
+        $x("//*[text()='Интерактивные сообщения']").click();
+        $("[class='createTemplateButton']").click();
+        $("[id='document']").click();
+        $("[class='filePayloadContent__dropzone_input']").uploadFile(new File("C:\\Users\\Люцик\\Downloads\\Инструменты_тестирования_для_работы_с_документацией.pdf"));
+        $("[name='name']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.body']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.action.buttons.0.reply.title']").sendKeys(faker.pockemonName());
+        $("[name='waba_interactive.action.buttons.1.reply.title']").sendKeys(faker.pockemonName());
+        $("[class='interactiveMessageSettings__footer_saveButton false']").click();
+    }
+    @Test
+    public void addTemplateInterDelete() {
+        $x("//*[text()='Интерактивные сообщения']").click();
+        $("[class='customTemplateCard__buttonGroup_deleteButton']").click();
     }
 
 }
