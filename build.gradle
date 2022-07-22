@@ -23,6 +23,7 @@ repositories {
 dependencies {
     implementation 'junit:junit:4.13.1'
     implementation 'faker:faker:0.3.2'
+    implementation 'org.testng:testng:7.1.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testImplementation 'io.rest-assured:rest-assured:4.3.0'

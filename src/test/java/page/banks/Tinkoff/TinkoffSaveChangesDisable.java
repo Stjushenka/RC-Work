@@ -1,27 +1,33 @@
 package page.banks.Tinkoff;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+
 
 public class TinkoffSaveChangesDisable {
 
-    final String username = getUsername();
-    final String password = getPassword();
     final SelenideElement name = $x("//*[text()='tinkoff+amo radistonlinewidgets.amocrm.ru']");
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+    }
+
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
     }
 
     @Test
@@ -208,7 +214,6 @@ public class TinkoffSaveChangesDisable {
 
     }
 
-
     @Test
     public void shouldTinkoffDisabledTax() {
         name.click();
@@ -240,9 +245,6 @@ public class TinkoffSaveChangesDisable {
 
     @Test
     public void shouldTinkoffDisabledTax10() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         name.click();
         $("[class='BankCustomIntegration__content__extraFields__item']").click();
         $x("//*[text()='10%']").click();
@@ -296,7 +298,6 @@ public class TinkoffSaveChangesDisable {
         $x("//*[text()='20/120']").click();
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
     }
-
 
     @Test
     public void shouldTinkoffDisabledPay() {
@@ -404,8 +405,6 @@ public class TinkoffSaveChangesDisable {
         $("[aria-label='controlled']").click();
         $x("//*[text()='Сохранить изменения']").click();
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
-
-
     }
 
     @Test
@@ -414,8 +413,6 @@ public class TinkoffSaveChangesDisable {
         $("[type='checkbox']").click();
         $("[type='checkbox']").click();
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
-
-
     }
 }
 

@@ -1,5 +1,6 @@
 package page.payment;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.LoginPage;
@@ -9,19 +10,22 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getLogin;
-
-
 
 public class paymentLink {
 
 
-    LoginPage.getLogin();
-
 
     @BeforeEach
     public void setUp() {
-        open("https://app-rc.int.radist.online/companies/5/chats");
+        open("https://app-rc.int.radist.online/companies");
+
+
+    }
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
     }
 
     @Test

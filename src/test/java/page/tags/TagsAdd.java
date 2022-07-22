@@ -1,17 +1,17 @@
 package page.tags;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 import page.faker;
 
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+
 
 public class TagsAdd {
 
-    final String username = getUsername();
-    final String password = getPassword();
+
     int min = '1';
     String aver = "yedgfgfehdfeydyuggdfhedgedf123";
     String maxTag = "999999999999999";
@@ -21,6 +21,15 @@ public class TagsAdd {
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/settings/tags");
+    }
+
+
+
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/tags");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
     }
 
 
@@ -114,9 +123,6 @@ public class TagsAdd {
 
     @Test
     public void AddTag10() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $("[class='GlobalButton  orange regular']").click();
         $("[id='name']").setValue(faker.pockemonName());
         $("[id='description']").setValue(aver);

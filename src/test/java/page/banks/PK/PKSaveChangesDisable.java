@@ -2,21 +2,20 @@ package page.banks.PK;
 
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+
 
 public class PKSaveChangesDisable {
 
-    final String username = getUsername();
-    final String password = getPassword();
     final SelenideElement name = $x("//*[text()='paykeeper+amo radistonlinewidgets.amocrm.ru']");
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
@@ -25,11 +24,15 @@ public class PKSaveChangesDisable {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
     }
 
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
+    }
+
     @Test
     public void shouldPKDisabledType() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         name.click();
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='excise']").click();
@@ -40,7 +43,6 @@ public class PKSaveChangesDisable {
         $("[class='BankCustomIntegration_content__extraFields__item']").click();
         $x("//*[text()='excise']").click();
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
-
     }
 
     @Test
@@ -297,8 +299,6 @@ public class PKSaveChangesDisable {
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
     }
 
-
-
     @Test
     public void shouldPKDisabledPay() {
         name.click();
@@ -405,8 +405,6 @@ public class PKSaveChangesDisable {
         $("[aria-label='controlled']").click();
         $x("//*[text()='Сохранить изменения']").click();
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
-
-
     }
 
     @Test
@@ -415,7 +413,5 @@ public class PKSaveChangesDisable {
         $("[type='checkbox']").click();
         $("[type='checkbox']").click();
         $("[class = 'BankCustomIntegration__footer__saveChanges__button disabled']").shouldBe(appear, Duration.ofSeconds(15));
-
-
     }
 }

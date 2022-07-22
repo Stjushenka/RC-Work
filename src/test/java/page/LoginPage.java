@@ -1,35 +1,35 @@
 package page;
 
+
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
 
-    public SelenideElement username = $("[data-test-id=login] input");
-    public SelenideElement password = $("[data-test-id=password] input");
-    public SelenideElement login = $("[data-test-id=action-login]");
+public class LoginPage {
 
     public LoginPage() {
     }
+
     public static String getUsername() {
         String username = "zhuravleva@radist.online";
         return username;
     }
 
     public static String getPassword() {
-        String passwordUser = "kQE-53h-U96-n5q";
-        return passwordUser;
+        String password = "kQE-53h-U96-n5q";
+        return  password;
     }
 
+    public SelenideElement user = $("[name='username']");
+    public SelenideElement password = $("[name='password']");
+    public SelenideElement button = $("[name='login']");
 
-    public void getLogin (String getUsername, String password) {
-        username.setValue(getUsername);
-        password.setValue(getPassword);
-        login.click();
+    public LoginPage getLogin() {
+        user.setValue(getUsername());
+        password.setValue(getPassword());
+        button.click();
+        return new LoginPage();
     }
-
-
-
 
 }

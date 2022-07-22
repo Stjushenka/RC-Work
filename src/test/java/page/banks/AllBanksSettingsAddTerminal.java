@@ -1,6 +1,7 @@
 package page.banks;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.LoginPage;
@@ -10,26 +11,26 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getLogin;
 
 public class AllBanksSettingsAddTerminal {
 
-    LoginPage.getLogin();
-    final String password = LoginPage.getPassword();
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+    }
 
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
     }
 
     @Test
     public void shouldAddTerminalBePaid() {
 
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $x("//*[text()='bepaid+amo radistonlinewidgets.amocrm.ru']").click();
         $x("//*[text()='Добавить подключения']").click();
         $x("//*[text()='Выберите подключение']").click();
@@ -44,9 +45,7 @@ public class AllBanksSettingsAddTerminal {
 
     @Test
     public void shouldAddTerminalPayKeeper() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
+
         $x("//*[text()='paykeeper+amo radistonlinewidgets.amocrm.ru']").click();
         $x("//*[text()='Добавить подключения']").click();
         $x("//*[text()='Выберите подключение']").click();

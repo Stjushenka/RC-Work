@@ -1,29 +1,35 @@
 package page.contacts;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import page.LoginPage;
 import page.faker;
 
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+//import static page.LoginPage.getPassword;
+//import static page.LoginPage.getUsername;
 
 public class Contacts {
 
-    final String username = getUsername();
-    final String password = getPassword();
+    //final String username = getUsername();
+    //final String password = getPassword();
 
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/contacts");
     }
 
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/contacts");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
+    }
+
     @Test
     public void AddContact() {
-        //$("[name='username']").setValue(username);
-        //$("[name='password']").setValue(password);
-        //$("[name='login']").click();
         $x("//*[text()='Добавить контакт']").click();
         $("[class='ContactDetailEdit__name__item'] input").setValue(faker.name());
         $("[class='ContactDetailEdit__footer__saveButton ']").click();
@@ -101,9 +107,6 @@ public class Contacts {
 
     @Test
     public void ContactDelNote() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $("[class='contacts__footer__pagination__wrapper__setting__wrapper__setting__text__numberIcon']").click();
         $x("//*[text()='100']").click();
         $x("//*[text()='Сергей Белов']").click();

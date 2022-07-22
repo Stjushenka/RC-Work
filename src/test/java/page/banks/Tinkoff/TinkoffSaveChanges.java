@@ -2,28 +2,32 @@ package page.banks.Tinkoff;
 
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+
 
 public class TinkoffSaveChanges {
-    final String username = getUsername();
-    final String password = getPassword();
     final SelenideElement name = $x("//*[text()='tinkoff+amo radistonlinewidgets.amocrm.ru']");
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+    }
 
-
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
     }
 
 
@@ -203,9 +207,6 @@ public class TinkoffSaveChanges {
 
     @Test
     public void shouldSettingsTinkoffPay() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         name.click();
         $$("[class='BankCustomIntegration__content__extraFields__item']").last().click();
         $("[data-value='full_prepayment']").click();

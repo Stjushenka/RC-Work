@@ -1,6 +1,7 @@
 package page.messenger;
 
 import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.LoginPage;
@@ -10,8 +11,6 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
 
 
 public class IntegrationSettingsAddNumber {
@@ -23,7 +22,13 @@ public class IntegrationSettingsAddNumber {
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+    }
 
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
     }
 
     @Test

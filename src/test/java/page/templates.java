@@ -1,5 +1,6 @@
 package page;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,23 +10,28 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+//import static page.LoginPage.getPassword;
+//import static page.LoginPage.getUsername;
 
 public class templates {
-    final String username = getUsername();
-    final String password = getPassword();
+    //final String username = getUsername();
+    //final String password = getPassword();
 
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/templates");
     }
 
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/templates");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
+    }
+
+
     @Test
     public void addTemplate() {
-        //$("[name='username']").setValue(username);
-        //$("[name='password']").setValue(password);
-        //$("[name='login']").click();
         $("[class='templatesList__item_content']").click();
         $("[class='createTemplateButton']").click();
         $("[id='name']").setValue(faker.pockemonName());
@@ -90,9 +96,6 @@ public class templates {
 
     @Test
     public void addTemplateInterPicButtons() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         $x("//*[text()='Интерактивные сообщения']").click();
         $("[class='createTemplateButton']").click();
         $("[id='image']").click();

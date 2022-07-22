@@ -1,32 +1,30 @@
 package page;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+
 
 
 public class Settings {
 
-    private String username = getUsername();
-    private String password = getPassword();
+    @BeforeAll
+    public  static void profileLogin() {
+        open("https://app-rc.int.radist.online/companies/5/settings/integrations");
+        LoginPage log = new LoginPage();
+        var login = log.getLogin();
+    }
 
     @BeforeEach
     public void setUp() {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
-
     }
 
     @Test
     public void shouldAddNumberRetie() {
-
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
-
         $x("//*[text()='wa+amo radistonlinewidgets.amocrm.ru']").click();
         $x("//*[text()='Добавить номер телефона']").click();
         $x("//*[text()='Выбрать номер телефона']").click();
@@ -42,7 +40,6 @@ public class Settings {
 
     @Test
     public void shouldAddNumberWA() {
-
         $x("//*[text()='radist test']").click();
         $x("//*[text()='Добавить номер телефона']").click();
         $x("//*[text()='Выбрать номер телефона']").click();
@@ -59,9 +56,6 @@ public class Settings {
 
     @Test
     public void shouldAddNumberWaba() {
-
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
         $("[name='login']").click();
         $x("//*[text()='waba+amocrm']").click();
         $x("//*[text()='Добавить номер телефона']").click();
