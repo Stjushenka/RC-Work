@@ -1,13 +1,10 @@
-name: Java CI
+image: Ubuntu
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+stack: jdk 11
 
-permissions:
-  contents: read
+branches:
+  only:
+    - master
 
 jobs:
   build:
