@@ -2,19 +2,22 @@ package page.payment;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 import page.faker;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+import static page.LoginPage.getLogin;
+
+
 
 public class paymentLink {
 
-    final String username = getUsername();
-    final String password = getPassword();
+
+    LoginPage.getLogin();
+
 
     @BeforeEach
     public void setUp() {
@@ -22,10 +25,8 @@ public class paymentLink {
     }
 
     @Test
-    public void emptyFieldBePaid() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
+    public void emptyFieldBePaidError() {
+
         //$x("//*[text()='Добавить контакт']").click();
         $("[class='conversation__content undefined']").click();
         $("[class='GlobalButton  white small']").click();
@@ -36,18 +37,73 @@ public class paymentLink {
     }
 
     @Test
-    public void AddContact() {
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
-        //$x("//*[text()='Добавить контакт']").click();
+    public void emptyFieldBePaid() {
+
         $("[class='conversation__content undefined']").click();
         $("[class='GlobalButton  white small']").click();
         $("[class='dropdownContainer__dropdown']").click();
-        $x("//*[text()='test FAKE']").click();
-        $("[class='inputContainer__input'] input").setValue(faker.name());
-        $("[class='inputContainer__input']").setValue("0.5");
-        $("[class='inputContainer__input']").setValue("0.5");
+        $x("//*[text()='test amocrm']").click();
+        $$("[class='inputContainer__input']").get(2).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(3).setValue("0.5");
+        $$("[class='inputContainer__input']").get(4).setValue("0.5");
+        $$("[class='GlobalButton  white small']").get(1).click();
+        $$("[class='inputContainer__input']").get(5).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(6).setValue("1");
+        $$("[class='inputContainer__input']").get(7).setValue("0");
+        $$("[class='GlobalButton  white small']").get(1).click();
+        $$("[class='inputContainer__input']").get(8).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(9).setValue("545");
+        $$("[class='inputContainer__input']").get(10).setValue("3");
         $("[class='GlobalButton  orange regular']").click();
+        $("[class = 'ModalPaymentInvoiceLink']").shouldBe(appear, Duration.ofSeconds(30));
     }
+
+    @Test
+    public void emptyFieldPhoneTinkoff() {
+
+        $("[class='conversation__content undefined']").click();
+        $("[class='GlobalButton  white small']").click();
+        $("[class='dropdownContainer__dropdown']").click();
+        $x("//*[text()='11Продажа']").click();
+        $("[class='form-control inputContainer__input_phone']").setValue(faker.phone());
+        $$("[class='inputContainer__input']").get(2).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(3).setValue("0.5");
+        $$("[class='inputContainer__input']").get(4).setValue("0.5");
+        $$("[class='GlobalButton  white small']").get(1).click();
+        $$("[class='inputContainer__input']").get(5).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(6).setValue("1");
+        $$("[class='inputContainer__input']").get(7).setValue("0");
+        $$("[class='GlobalButton  white small']").get(1).click();
+        $$("[class='inputContainer__input']").get(8).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(9).setValue("545");
+        $$("[class='inputContainer__input']").get(10).setValue("3");
+        $("[class='GlobalButton  orange regular']").click();
+        $("[class = 'ModalPaymentInvoiceLink']").shouldBe(appear, Duration.ofSeconds(30));
+    }
+
+    @Test
+    public void emptyFieldMailTinkoff() {
+
+        $("[class='conversation__content undefined']").click();
+        $("[class='GlobalButton  white small']").click();
+        $("[class='dropdownContainer__dropdown']").click();
+        $x("//*[text()='11Продажа']").click();
+        $("[name='receipt.client_email']").setValue(faker.randomEmail());
+        $$("[class='inputContainer__input']").get(2).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(3).setValue("0.5");
+        $$("[class='inputContainer__input']").get(4).setValue("0.5");
+        $$("[class='GlobalButton  white small']").get(1).click();
+        $$("[class='inputContainer__input']").get(5).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(6).setValue("1");
+        $$("[class='inputContainer__input']").get(7).setValue("0");
+        $$("[class='GlobalButton  white small']").get(1).click();
+        $$("[class='inputContainer__input']").get(8).setValue(faker.pockemonName());
+        $$("[class='inputContainer__input']").get(9).setValue("545");
+        $$("[class='inputContainer__input']").get(10).setValue("3");
+        $("[class='GlobalButton  orange regular']").click();
+        $("[class = 'ModalPaymentInvoiceLink']").shouldBe(appear, Duration.ofSeconds(30));
+    }
+
+
+
 }

@@ -3,6 +3,7 @@ package page.messenger;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 
 import java.time.Duration;
 
@@ -15,8 +16,7 @@ import static page.LoginPage.getUsername;
 
 public class IntegrationSettingsAddNumber {
 
-    final String username = getUsername();
-    final String password = getPassword();
+
     final SelenideElement name = $x("//*[text()='wa+amo radistonlinewidgets.amocrm.ru']");
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
@@ -59,10 +59,6 @@ public class IntegrationSettingsAddNumber {
 
     @Test
     public void shouldAddNumberWaba() {
-
-        $("[name='username']").setValue(username);
-        $("[name='password']").setValue(password);
-        $("[name='login']").click();
         name.click();
         $x("//*[text()='Добавить номер телефона']").click();
         $x("//*[text()='Выбрать номер телефона']").click();

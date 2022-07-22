@@ -3,19 +3,19 @@ package page.banks;
 import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import page.LoginPage;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
-import static page.LoginPage.getPassword;
-import static page.LoginPage.getUsername;
+import static page.LoginPage.getLogin;
 
 public class AllBanksSettingsAddTerminal {
 
-    final String username = getUsername();
-    final String password = getPassword();
+    LoginPage.getLogin();
+    final String password = LoginPage.getPassword();
     final SelenideElement save = $(withText("Изменения были успешно сохранены"));
 
     @BeforeEach
