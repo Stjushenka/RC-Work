@@ -9,13 +9,8 @@ import page.faker;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-//import static page.LoginPage.getPassword;
-//import static page.LoginPage.getUsername;
 
 public class TagsDeleteEdit {
-
-    //final String username = getUsername();
-    //final String password = getPassword();
 
     @BeforeEach
     public void setUp() {
@@ -23,7 +18,7 @@ public class TagsDeleteEdit {
     }
 
     @BeforeAll
-    public  static void profileLogin() {
+    public static void profileLogin() {
         open("https://app-rc.int.radist.online/companies/5/settings/tags");
         LoginPage log = new LoginPage();
         var login = log.getLogin();

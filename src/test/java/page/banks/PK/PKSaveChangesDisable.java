@@ -25,7 +25,7 @@ public class PKSaveChangesDisable {
     }
 
     @BeforeAll
-    public  static void profileLogin() {
+    public static void profileLogin() {
         open("https://app-rc.int.radist.online/companies/5/settings/integrations");
         LoginPage log = new LoginPage();
         var login = log.getLogin();
